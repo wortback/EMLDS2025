@@ -20,7 +20,10 @@ def kde(samples, h):
 
     #####Insert your code here for subtask 5a#####
     # Estimate the density from the samples
+    estimatedDensity = np.zeros_like(pos)
 
+    for i in range(len(pos)):
+        estimatedDensity[i] = (1 / (N * h * np.sqrt(2 * np.pi))) * np.sum(np.exp((pos[i] - samples) ** 2 / (-2) * (h ** 2)))
 
     # Form the output variable
     estimatedDensity = np.stack((pos, estimatedDensity), axis=1)
